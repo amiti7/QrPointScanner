@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!user) {
-      setLocation('/');
+      setLocation('/login');
       return;
     }
     // Only fetch profile once when component mounts
@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   const handleScanQR = () => {
-    setLocation('/scan');
+    setLocation('/qr-scanner');
   };
 
   if (!user) {

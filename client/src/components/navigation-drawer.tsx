@@ -16,7 +16,7 @@ export default function NavigationDrawer({ isOpen, onClose }: NavigationDrawerPr
 
   const handleLogout = () => {
     dispatch(logout());
-    setLocation('/');
+    setLocation('/login');
     onClose();
   };
 

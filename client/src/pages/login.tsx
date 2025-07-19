@@ -36,7 +36,7 @@ export default function Login() {
         title: "OTP Sent",
         description: "Verification code sent to your mobile number",
       });
-      setLocation('/otp');
+      setLocation('/otp-verification');
     } catch (error) {
       toast({
         title: "Error",
@@ -48,7 +48,7 @@ export default function Login() {
 
   useEffect(() => {
     if (otpSent) {
-      setLocation('/otp');
+      setLocation('/otp-verification');
     }
   }, [otpSent, setLocation]);
 

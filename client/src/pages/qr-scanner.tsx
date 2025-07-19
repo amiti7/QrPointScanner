@@ -31,7 +31,7 @@ export default function QRScanner() {
 
     dispatch(setQRCode(qrCode));
     dispatch(stopScanning());
-    setLocation('/validate');
+    setLocation('/qr-validation');
   };
 
   const { videoRef, canvasRef, isScanning: cameraActive, error, startScanning: startCamera, stopScanning: stopCamera } = useQRScanner(handleQRDetected);

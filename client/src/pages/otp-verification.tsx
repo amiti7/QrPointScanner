@@ -19,7 +19,7 @@ export default function OTPVerification() {
 
   useEffect(() => {
     if (!mobile) {
-      setLocation('/');
+      setLocation('/login');
       return;
     }
     if (user) {
