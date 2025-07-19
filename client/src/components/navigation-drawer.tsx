@@ -21,8 +21,8 @@ export default function NavigationDrawer({ isOpen, onClose }: NavigationDrawerPr
   };
 
   const handleContactUs = () => {
-    const message = encodeURIComponent("Hello! I need help with ConstructScan app.");
-    const whatsappURL = `https://wa.me/+919876543210?text=${message}`;
+    const message = encodeURIComponent("Hello! I need help with Nirman Bandhu App.");
+    const whatsappURL = `https://wa.me/+918960981283?text=${message}`;
     window.open(whatsappURL, '_blank');
   };
 

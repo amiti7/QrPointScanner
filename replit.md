@@ -2,7 +2,7 @@
 
 ## Overview
 
-ConstructScan is a Progressive Web Application (PWA) designed for the construction industry, allowing workers to scan QR codes on construction sites to earn points. The application features a mobile-first design with OTP-based authentication and real-time QR code validation.
+Nirman Bandhu is a Progressive Web Application (PWA) designed for the coupon holders, allowing workers to scan QR codes on app sites to earn points. The application features a mobile-first design with OTP-based authentication and real-time QR code validation.
 
 ## User Preferences
 

@@ -23,7 +23,7 @@ export default function QRScanner() {
     if (!isValid) {
       toast({
         title: "Invalid QR Code",
-        description: error || "Please scan a valid construction QR code",
+        description: error || "Please scan a valid QR code",
         variant: "destructive",
       });
       return;
@@ -137,7 +137,7 @@ export default function QRScanner() {
               {error ? error : "Scan a 32-character QR code to earn points"}
             </p>
             <p className="text-orange-200 text-xs mt-1">
-              {cameraActive ? "Looking for valid construction QR codes..." : "Starting camera..."}
+              {cameraActive ? "Looking for valid QR codes..." : "Starting camera..."}
             </p>
             {/* Test QR Code for scanning */}
             {cameraActive && (

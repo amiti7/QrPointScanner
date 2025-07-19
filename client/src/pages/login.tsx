@@ -109,11 +109,11 @@ export default function Login() {
         {/* Quick Demo Login */}
         <Button
           onClick={() => {
-            dispatch(setMobile('+919876543210'));
+            dispatch(setMobile('+918960981283'));
             // Simulate successful login
             const testUser = {
               id: 1,
-              mobile: '+919876543210',
+              mobile: '+918960981283',
               totalPoints: 0,
               createdAt: new Date().toISOString()
             };
