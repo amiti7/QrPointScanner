@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'wouter';
-import { X, Zap } from 'lucide-react';
+import { X, Zap, QrCode } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import StatusBar from '@/components/status-bar';
 import { useQRScanner } from '../hooks/use-qr-scanner';
