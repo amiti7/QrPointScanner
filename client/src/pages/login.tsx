@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'wouter';
 import { HardHat, Send } from 'lucide-react';
@@ -46,10 +46,11 @@ export default function Login() {
     }
   };
 
-  if (otpSent) {
-    setLocation('/otp');
-    return null;
-  }
+  useEffect(() => {
+    if (otpSent) {
+      setLocation('/otp');
+    }
+  }, [otpSent, setLocation]);
 
   return (
     <div className="min-h-screen flex flex-col">
