@@ -1,3 +1,5 @@
+import jsQR from 'jsqr';
+
 export async function startCamera(videoElement: HTMLVideoElement): Promise<void> {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -38,22 +40,13 @@ export function decodeQRCode(videoElement: HTMLVideoElement, canvasElement: HTML
   // Get image data
   const imageData = context.getImageData(0, 0, canvasElement.width, canvasElement.height);
 
-  // Simple QR code detection simulation
-  // In a real implementation, you would use a QR code library like jsQR
-  // For now, we'll simulate detection after a delay and return a test QR code
-  
-  // This is a placeholder - in production, use jsQR or similar library
-  // For demo purposes, we'll return a valid test QR code after some time
-  const testQRCodes = [
-    "1AAAICP0166JM16PHE5PQNM988JS7260",
-    "2BBBICP0166JM16PHE5PQNM988JS7251",
-    "5CCCICP0166JM16PHE5PQNM988JS7265"
-  ];
-  
-  // Simulate QR detection with random delay
-  const random = Math.random();
-  if (random > 0.95) { // 5% chance per scan cycle
-    return testQRCodes[Math.floor(Math.random() * testQRCodes.length)];
+  // Use jsQR to decode QR code
+  const code = jsQR(imageData.data, imageData.width, imageData.height, {
+    inversionAttempts: "dontInvert",
+  });
+
+  if (code) {
+    return code.data;
   }
   
   return null;

@@ -17,14 +17,14 @@ export function useQRScanner(onQRDetected: (qrCode: string) => void) {
         
         // Start QR detection loop
         scanIntervalRef.current = setInterval(() => {
-          if (videoRef.current && canvasRef.current && isScanning) {
+          if (videoRef.current && canvasRef.current) {
             const qrCode = decodeQRCode(videoRef.current, canvasRef.current);
             if (qrCode && qrCode.length === 32) {
               onQRDetected(qrCode);
               stopScanning();
             }
           }
-        }, 1000);
+        }, 500); // Faster scanning at 500ms
       }
     } catch (err) {
       setError('Failed to access camera. Please ensure camera permissions are granted.');
