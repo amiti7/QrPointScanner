@@ -94,7 +94,7 @@ export default function Login() {
         <Button
           onClick={handleSendOTP}
           disabled={isLoading || mobile.length !== 10}
-          className="w-full bg-primary hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition duration-200"
+          className="w-full bg-primary hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition duration-200 mb-4"
         >
           {isLoading ? (
             "Sending..."
@@ -104,6 +104,26 @@ export default function Login() {
               Send Verification Code
             </>
           )}
+        </Button>
+
+        {/* Quick Demo Login */}
+        <Button
+          onClick={() => {
+            dispatch(setMobile('+919876543210'));
+            // Simulate successful login
+            const testUser = {
+              id: 1,
+              mobile: '+919876543210',
+              totalPoints: 0,
+              createdAt: new Date()
+            };
+            dispatch({ type: 'auth/verifyOTP/fulfilled', payload: testUser });
+            setLocation('/home');
+          }}
+          variant="outline"
+          className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-4 rounded-lg transition duration-200"
+        >
+          Quick Demo Login
         </Button>
 
         <div className="mt-8 text-center text-xs text-gray-500">
