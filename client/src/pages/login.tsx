@@ -115,7 +115,7 @@ export default function Login() {
               id: 1,
               mobile: '+919876543210',
               totalPoints: 0,
-              createdAt: new Date()
+              createdAt: new Date().toISOString()
             };
             dispatch({ type: 'auth/verifyOTP/fulfilled', payload: testUser });
             setLocation('/home');

@@ -19,8 +19,9 @@ export default function Home() {
       setLocation('/');
       return;
     }
+    // Only fetch profile once when component mounts
     dispatch(getUserProfile(user.id));
-  }, [user, setLocation, dispatch]);
+  }, []);
 
   const handleScanQR = () => {
     setLocation('/scan');

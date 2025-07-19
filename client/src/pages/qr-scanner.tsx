@@ -49,7 +49,7 @@ export default function QRScanner() {
       dispatch(stopScanning());
       stopCamera();
     };
-  }, [user, dispatch, startCamera, stopCamera, setLocation]);
+  }, []);
 
   const handleClose = () => {
     dispatch(stopScanning());
@@ -65,39 +65,54 @@ export default function QRScanner() {
     <div className="min-h-screen flex flex-col">
       <StatusBar bgColor="bg-black" />
       
-      {/* Camera View */}
-      <div className="flex-1 relative bg-black">
-        {/* Video element for camera feed */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          playsInline
-          muted
-        />
-        
-        {/* Hidden canvas for QR processing */}
-        <canvas ref={canvasRef} className="hidden" />
-        
-        {/* Scanner Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative">
-            {/* Scanning Frame */}
-            <div className="w-64 h-64 border-4 border-white rounded-lg relative">
-              {/* Corner indicators */}
-              <div className="absolute -top-1 -left-1 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
-              <div className="absolute -top-1 -right-1 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
-              <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
-              
-              {/* Scanning line animation */}
-              {cameraActive && (
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-75 scan-line"></div>
-              )}
-            </div>
+      {/* Scanner Demo */}
+      <div className="flex-1 relative bg-gradient-to-b from-gray-900 to-black">
+        {/* Demo Scanner Area */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+          {/* Scanning Frame */}
+          <div className="w-64 h-64 border-4 border-white rounded-lg relative mb-8">
+            {/* Corner indicators */}
+            <div className="absolute -top-1 -left-1 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+            <div className="absolute -top-1 -right-1 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+            <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+            <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
             
-            <p className="text-white text-center mt-6 font-medium">
-              Position QR code within the frame
-            </p>
+            {/* Scanning line animation */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-75 scan-line"></div>
+            
+            {/* Demo content */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-center">
+                <QrCode className="w-16 h-16 mx-auto mb-2 opacity-50" />
+                <p className="text-sm">Demo Scanner</p>
+              </div>
+            </div>
+          </div>
+          
+          <p className="text-white text-center font-medium mb-6">
+            Click test buttons to simulate QR scans
+          </p>
+          
+          {/* Test QR Buttons */}
+          <div className="space-y-3 w-full max-w-sm">
+            <Button
+              onClick={() => handleQRDetected("1AAAICP0166JM16PHE5PQNM988JS7260")}
+              className="w-full bg-green-600 hover:bg-green-700 text-white"
+            >
+              Test QR: 10 Points
+            </Button>
+            <Button
+              onClick={() => handleQRDetected("2BBBICP0166JM16PHE5PQNM988JS7251")}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              Test QR: 25 Points  
+            </Button>
+            <Button
+              onClick={() => handleQRDetected("5CCCICP0166JM16PHE5PQNM988JS7265")}
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+            >
+              Test QR: 50 Points
+            </Button>
           </div>
         </div>
 
