@@ -17,14 +17,10 @@ export default function Home() {
   useEffect(() => {
     if (!user) {
       setLocation('/');
+      return;
     }
-  }, [user, setLocation]);
-
-  useEffect(() => {
-    if (user) {
-      dispatch(getUserProfile(user.id));
-    }
-  }, [dispatch, user]);
+    dispatch(getUserProfile(user.id));
+  }, [user, setLocation, dispatch]);
 
   const handleScanQR = () => {
     setLocation('/scan');

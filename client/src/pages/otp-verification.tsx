@@ -20,14 +20,12 @@ export default function OTPVerification() {
   useEffect(() => {
     if (!mobile) {
       setLocation('/');
+      return;
     }
-  }, [mobile, setLocation]);
-
-  useEffect(() => {
     if (user) {
       setLocation('/home');
     }
-  }, [user, setLocation]);
+  }, [mobile, user, setLocation]);
 
   const handleOTPChange = (index: number, value: string) => {
     if (!/^\d*$/.test(value)) return;
