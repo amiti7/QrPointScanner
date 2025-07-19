@@ -4,8 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --config client/vite.config.ts --root client",
-    "build": "vite build --config client/vite.config.ts --outDir ../dist/public",
+    "dev": "vite --config vite.config.ts --root ",
+    "build": "vite build --config vite.config.ts --outDir ../dist/public",
     "check": "tsc"
   },
   "dependencies": {
